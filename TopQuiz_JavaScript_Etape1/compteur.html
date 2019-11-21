@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<header></header>
+		<p id="texte_principal">Bienvenue. Quel est votre nom ?</p>
+
+		<form onsubmit="return false">
+	        <p><input type="text" id="myinput" name="nom" placeholder="Saisissez votre nom !"=required></p>
+	        <p><input type="submit" value="Jouez !" id="btn_jouer"></p>
+    	</form>
+
+		<p id="p_cpt_clic"><mark><span id="cpt_clic">0</span> clic</mark></p>
+
+		<button id="btn_raz">RAZ</button>
+
+	<script src="script.js"></script>
+	</body>
+</html>

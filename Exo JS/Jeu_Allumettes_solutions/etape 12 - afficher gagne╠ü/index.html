@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <title>allumettes</title>
+    </head>
+ 
+    <body> 
+        <fieldset>
+        <legend>jeux des allumettes</legend>
+            <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <!-- on change de technique : on numérote les td A1, A2 avec leur ligne -->
+                <!-- on ne met que les td avant les allumettes, pas après -->
+                <!-- on effacera tous le td -->
+                <td id="tdL1A1">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td id="tdL2A1">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL2A2">
+                     <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL2A3">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="tdL3A1">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL3A2">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL3A3">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL3A4">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL3A5">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+            </tr>
+            <tr>
+                <td id="tdL4A1">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL4A2">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL4A3">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL4A4">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL4A5">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL4A6">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <td id="tdL4A7">
+                    <p><img src="allumette.png"></p>
+                    <p><input type="checkbox"></p>
+                </td>
+                <!-- on rajoute un td pour éviter que la ligne disparaisse -->
+                <td></td> 
+            </tr>
+            </table>
+            <button id="effacer">effacer des allumettes</button>
+            <button id="RAZ">RAZ</button>
+            <div id="gagnant"></div>
+        </fieldset>
+        <script src="script.js"></script>
+    </body>
+</html>

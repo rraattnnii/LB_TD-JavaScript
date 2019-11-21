@@ -1,0 +1,14 @@
+console.log("window");
+console.log(window);
+console.log("window.innerWidth");
+console.log(window.innerWidth);
+console.log("window.screen");
+console.log(window.screen);
+console.log("window.document");
+console.log(window.document);
+window.document.getElementById("maDiv").innerHTML='coucou ajouté via l\'objet window';
+console.log("window.navigator");
+console.log(window.navigator);
+console.log("window.location");
+console.log(window.location);
+blur();

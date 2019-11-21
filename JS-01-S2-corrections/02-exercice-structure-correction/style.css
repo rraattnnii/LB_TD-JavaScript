@@ -1,0 +1,14 @@
+table{
+    border-collapse: collapse; /*cellules collées */
+}
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    min-width: 100px;
+}
+tr:nth-child(even) { /* even : impair, odd : pair */
+	background-color: aqua; /*lignes impairs en gris*/
+}
+tr:hover { 
+	background-color: green; /*surlignage en passant la souris*/
+}

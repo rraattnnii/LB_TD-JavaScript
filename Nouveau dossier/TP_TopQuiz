@@ -1,0 +1,271 @@
+1-0 : installer Android
+
+téléchargement : 
+https://developer.android.com/studio/index.html
+remarque : si on n''a pas déjà le SDK android, il faudra l''installer en même temps.
+Choisissez le chemin d''installation : où vous voulez (C:/, programmes, le chemin proposé)
+
+// ************************************************************************************ //
+1-1 : configuration
+démarrer Android : en bas droite : configurations:
+configure/ Preferences / Appearence & Behavior / Appearence =>Theme : darcula + [apply]
+configure/ Preferences / Editor / Code Style / Java / Tabs and Indents =>Indent : 3 + [apply]
+.../ Editor / Code Style / Java / Wrapping and Braces => placements des parenthèses, accolades, 
+.../ Editor / File and code templates / Includes / File Header
+On peut ajouter : 
+/**
+ *  Created by Moi le ${DATE}
+ */
+
+// ************************************************************************************ //
+1-2 : Créer un projet
+-Projet Top Quizz
+-L''arborescence d''un projet Android : les dossiers et les fichiers
+-Les boutons de l''IDE Android : se familiariser avec cet environnement
+1-2-1: Start a new Android studio project
+   nom de l''application : TopQuiz (Maj1, camelCase)
+   nom de domaine : nom.prenom.com (ce sera le nom de domaine du client final)
+   package name : com.monprenom.topquiz (tout en minuscules)
+   lieu de stockage : par défaut, ok (Exemple : /Users/bertrandliaudet/AndroidStudioProjects/)
+   language : Java
+   NEXT
+   équipements : phone and tablet (wear : objet connecté)
+   minimum SDK : 15 c''est suffisant. Ca donne plus ou moins accès à des API qui réduisent plus ou moins le nombre de téléphone à jour. 
+   NEXT
+   modèle prédéfini : on démarre avec un écran vide : empty activity (activity=écran)
+   NEXT
+   on laisse le nom de l''activité par défaut et le nom du layout.
+   FINISH
+1-2-2 : des boutons partout sur l''IDE !!!
+	On est dans l''onglet MainActivity.java : c''est du code Java
+	Le fichier MainActivity.java se trouve dans App / Java / com.monom.topquiz
+	Il y a des 'onglets principaux' à droite, à gauche et en bas. On peut les afficher/cacher avec le carré en bas à gauche.
+	Il y a le 'navigateur', fenêtre haut-gauche, pour circuler dans les fichiers du projet. 
+	Ie navigateur s''affiche avec l''onglet principal gauche 'Project'.
+	Chaque fichier sélectionné affiche son contenu dans la fenêtre d''affichage haut droite avec un nouvel onglet.
+	On peut regarder tous les onglets à droite, à gauche, en bas pour se familiariser avec l''environnement.
+
+	- Le répertoire manifests : un seul fichier : AndroidManifest.xml. 
+		carte d''identité de l''application
+	- Le répertoire java : code source Java ou Kotlin (nouveau langage possible) et les tests ()
+		nous : un fichier MainActivity (extension .java cachée)
+		ça se remplit au fur et à mesure
+	 - Le répertoire res : toutes les ressources de l''application,
+		- dossier drawable : les images et contenus à afficher à l''écran
+		- dossier layout : les fichiers layout de l''application (layout=description d''un ecran en XML)
+		- mipmap : principalement l''icône de l''application
+		- values : différents paramétrages (couleurs, traductions, styles, etc.)
+
+// ************************************************************************************ //
+1-3 : IHM-première appli : dessiner le premier écran
+	- principes
+		Déterminer les éléments graphique à dessiner: zone de saisie ou bouton par exemple
+		On utilise un fichier layout, écrit en XML.
+		Le XML permet de positionner les différents éléments et leurs attributs (dimension, couleur, type, etc.) comme dans du HTML.
+	- Project / App / Res / Layout / activity_main.xml
+		Onglet 'text' en bas de la fenêtre d''affichage (haut droit) pour avoir le code du layout
+		Onglet principal droite 'preview' : affichage mis à jour automatiquement avec la modification du code
+	- Situation de départ : Hello World
+  - On va créer un champ texte, une zone de saisie et un bouton.
+/
+  1-3-1 : Remplacer la première balise par une balise LinearLayout : 
+      <androidx.constraintlayout.widget.ConstraintLayout
+    par :
+      <LinearLayout
+    les éléments sont mis les uns à la suite des autres à l''horizontal
+ 
+    Remplacer : 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      par :
+        </LinearLayout>
+
+  1-3-2 : Remplacer dans la balise TextView
+      android:text="Hello World!"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+    par : 
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:hint="Bienvenue. Quel est votre nom ?"/>
+
+    Cliquer sur l''onglet principal de droite : Preview
+
+  1-3-3 : Ajouter la balise EditText après la balise TextView : 
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:layout_marginEnd="10dp"
+          android:hint="Saisissez votre nom !"/>
+    Le wrap_content adapte la taille à celle du texte.
+    Les éléments sont l''un à côté de l''autre
+
+    Pour les passer les éléments l'un en dessous de l'autre: 
+    Ajouter dans la balise LinearLayout
+        android:orientation="vertical"
+      avant
+        tools:context=".MainActivity">
+
+    Pour ralonger le trait de saisie sur toute la largeur : 
+    Remplacer dans la balise <EditText>
+        android:layout_width="wrap_content"
+      par
+        android:layout_width="match_parent"
+    Le match_parent hérite du parent, le LinearLayout, qui lui-même héritait de la fenêtre.
+    Du coup, le trait horizontal de saisie est sur toute la largeur.
+/
+  1-3-4 : Ajouter la balise Button après la balise EditText : 
+    Ajouter : 
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+      />
+      avant la fermeteur du </LinearLayout>
+/  
+    Usages pratiques : 
+      Quand on saisit <But , l''IDE propose de compléter : tapez "tabulation"
+      Androit propose directement le layout_width et le layout_height avec les valeurs possibles.
+
+    On ajoute encore dans le <Button
+      android:text="Jouez !"
+    Puis on centre : tapez grav (pour gravity) : on arrive à android:layout_gravity
+      android:layout_gravity="center_horizontal"
+    Puis on rajoute de la marge à l''intérieur du bouton avec le padding :
+      android:padding="30dp"
+    Et on ajoute un peut de marge en haut : 
+      android:layout_marginTop="20dp"
+  
+  1-3-5 : Ajouter de la couleur pour mieux voir les éléments : 
+    Dans la balise TextView, on tape background :  
+      android:background="#00ff00" 
+    On en profite pour allonger l''élément sur toute la largeur : 
+      android:layout_width="match_parent"
+
+// ************************************************************************************ //  
+1-4 : Référencer les éléments du layout pour les utiliser dans le code Java
+  1-4-1 : principes
+    On veut faire le lien entre MainActivity.java et le layout
+    MainActivity.java a été généré automatiquement à la création.
+    Le fichier contient une classe qui a le même nom que le fichier.
+    C''est l''activité principale.
+    Il y a une seule méthode : onCreate()
+    @override dit que cette méthode existe dans une classe parente et qu''a va la redéfinir en gardant les mêmes arguments.
+    La ligne "super." fait appel à la méthode parente.
+    Le setContentView est la ligne importante
+    setContentView(R.layout.activity_main) veut dire qu''on charge le layout activity_main.xml
+    cmd ou ctrl permette de proposer un lien hypertexte vers le fichier.
+    On veut référencer nos 3 éléments de layout : texte, saisie, bouton.
+    Pour cela, il faut que les éléments aient un identifiant.
+/ 1-4-2 : les identifians
+    un id est un attribut de la balise auquel on donne une valeur commençant par @+id/
+/   android:id="@+id/activity_main_texte_principal"
+/   android:id="@+id/activity_main_input"
+/   android:id="@+id/activity_main_btn_jouer"
+
+  1-4-3 : référencer dans le MainActivity.java
+    On crée des variables du type de la balise à référencer dans la classe, avant la méthode.
+    
+    TextView refTextePrincipal; // @+id/activity_main_texte_principal
+      Quand on saisit TextView, l''IDE propose d''ajouter un import : suivre la technique proposée.
+      En l''occurence s''ajoute : 
+        import android.widget.TextView;
+    Ajouter EditText :
+      Quand on saisit EditText, l''import se fait automatiquement.
+        EditText refInput;
+    Idem pour le Button : 
+
+  1-4-4 : toutes les variables en private
+    alt + sélection sur les 3 lignes : "méga curseur" : on peut tapez private sur les 3 lignes.
+/
+  1-4-5 : findViewById : faire le lien entre une balise et un objet
+    Ajouter dans la méthode onCreate, après le super et le setContentView
+      refTextePrincipal = findViewById(R.id.activity_main_texte_principal);
+    findViewById retourne un objet de classe View.
+    les classes de Balise (TextView) hérite de View.
+    Donc, si on peut mettre un parent dans un enfant, il faut forcer le type : 
+    refTextePrincipal = (TextView) findViewById(R.id.activity_main_texte_principal);
+
+    Ajouter : 
+      refInput = (EditText) findViewById(R.id.activity_main_input);
+      refBtnJouer = (Button) findViewById(R.id.activity_main_btn_jouer);
+
+    Utiliser l''autocomplétion : findV etc., R.id.input etc.
+/
+    1-4-6 : conclusion
+      Les liens sont faits. On va pouvoir mettre des propriétés sur les variables, un peu comme en JavaScript.
+      Par exemple : des listener.
+/
+// ************************************************************************************ //  
+1-5 : Gérer la logique métier
+  1-5-1 : principes
+    On va désactiver le bouton tant qu''aucun prénom n''a été saisi.
+/
+  1-5-2 : désactiver le Button : setEnabled()
+    refBtnJouer.setEnabled(false); // le bouton est désactivé : il est grisé
+
+  1-5-3 : ajouter un listener sur l''EditText pour savoir si on saisit quelque chose
+    refInput.addTextChangedListener(new TextWatcher() {
+      Quand on commmence à saisir : add : il propose la suite
+      On saisit new Text et il propose la suite.
+      Automatiquement, apparaisse 3 méthodes qui sont celles de l''interface Listener.
+      Celle qui nous intéresse est : 
+        public void onTextChanged(CharSequence s, int start, int before, int count)
+      Cette méthode va s''exécuter chaque fois que le texte change dans la zone de saisie
+        if(s.toString().length() !=0){
+          refBtnJouer.setEnabled(true)
+        }
+        else {
+          refBtnJouer.setEnabled(false)
+        }
+      On peut compacter ce code : 
+        refBtnJouer.setEnabled(s.toString().length() !=0)
+
+  1-5-3 : ajouter un listener sur le Button pour savoir si on clique dessous
+    refBtnJouer.setOnClickListener(new View.OnClickListener() {
+      La méthode onClick est implémentée.
+/
+// ************************************************************************************ //  
+1-6 : Tester : un émulateur ou brancher son téléphone
+  1-6-1 : principes d'' émulateur
+    Un émulateur est un programme qui correspond à un téléphone
+    On installe un android dessous
+    On teste notre code
+  1-6-2 : bouton lecture vert
+    La première fois, le bouton vert ne donne rien.
+    Il va falloir faire un No devices / Open AVD Manager
+    => Create Virtual Device : une fenêtre avec un large choix d''équipements
+    Exemple : un Nexus 6 + NEXT
+    Prendre le download de base : API 29 ou plus. Cliquer sur download.
+    Ca télécharge, c''est plus ou moins long !
+    Quand c''est fini, le lien download a disparu + NEXT puis FINISH
+    Ensuite on clique sur le bouton vert.
+    C''est lent !!
+    Il peut y avoir des messages d''erreurs : agrandir la fenêtre du bas pour les voir.
+    Un double clic sur les erreurs ramène dans le code
+
+// ************************************************************************************ //  
+// ************************************************************************************ //  
+EXERCICES SUPPLEMENTAIRES
+1-7 : Ajouter un compteur de clic
+    On veut ajouter un compteur de clic sous le bouton.
+    Il doit être centré, avec un peu d''epace par rapport au bouton.
+    Sur fond jaune qui s''étale uniquement sous le texte.
+    Le texte sera  : 0 clic, 1 clic, 2 clics (avec un "s"), etc.
+    Pour modifier un TextView ou un EditText, on utilise la méthode setText("texte")
+/
+1-8 : Ajouter un bouton RAZ
+    C''est un bouton centré, sous le compteur de clics, gris et sans padding.
+    Il sert à vider le champ de saisie et à remettre le nombre de clics à 0
+    Il n''est accessible que quand il peut être utile.
+
+
+
+
+
+
+
+
+
+

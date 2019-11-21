@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>JavaScript</title>
+</head>
+
+<body>
+	<h1>Changement d'images</h1>
+
+	<div>
+		<img class="illustration" id="image1" src="images/img1.jpg" height="200" />
+		<img class="illustration" id="image2" src="images/img2.jpg" height="200" onclick="this.style.display='none'"/>
+	</div>
+	<p><button onclick="changerImage();">changer la première image</button></p>
+	<p>cliquer sur la deuxième image pour la faire disparaitre</p>
+	<p><button onclick="afficherImage();">Afficher l'image cachée</button></p>
+	
+    <script src="script.js"></script>
+</body>
+</html>

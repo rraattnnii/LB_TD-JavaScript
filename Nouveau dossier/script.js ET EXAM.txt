@@ -1,0 +1,33 @@
+﻿function affectTaux() {
+	//document.getElementById permet de reperer dans un document 
+	// une balise identifiée par id = "duree"
+    var selectBoxAnnee = document.getElementById("duree");
+    //on recupere la donnée saisie par l'utilisateur dans la balise duree
+    var annee = selectBoxAnnee.options[selectBoxAnnee.selectedIndex].value;
+  //document.getElementById permet de reperer dans un document 
+	// une balise identifiée par id = "taux"
+    var taux = document.getElementById("taux");
+    // permet d'afficher le taux dans la balise taux
+    taux.value=calculTaux(annee);
+    alert("Votre taux est  " + taux.value);
+   }
+function calculTaux(taux ){
+    resu=0;
+    if(taux==7) {resu=0.9;}
+    if(taux==10) {resu=1.10;}
+    if(taux==15) {resu=1.36;}
+    if(taux==20) {resu=1.58;}
+    if(taux==25) {resu=1.82;}
+    return resu;
+}
+//Balise a ajouter dans HTML
+// <script type="text/javascript" src="assets/js/script.js"></script>
+
+
+
+
+QST DE COURS AU EXAM FINALE 2EME SEMESTRE
+
+ql sont les methodes qui generent AUTOMATIQUEMENT?
+
+

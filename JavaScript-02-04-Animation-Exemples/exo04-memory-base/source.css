@@ -1,0 +1,17 @@
+/* c'est la case qui est cliquable : elle n'est jamais cachée */
+div.case {
+   height: 100px;
+   width:  100px;
+   border: 1px solid black;
+   margin: 10px;
+   background-color: pink;
+   float: left; /* pour des images à la suite */
+}
+#affichage{
+	clear:both;
+}
+img {
+   height: 100px; /* pour l'image affichée */
+   width:  100px;
+   visibility: hidden;
+}

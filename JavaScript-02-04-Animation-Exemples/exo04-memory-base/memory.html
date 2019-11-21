@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="source.css" />
+    <title>Memory</title>
+</head>
+
+<body>
+    <h1>Jeu de memory</h1>
+
+    <section id="jeu">
+	    <div class="case" onclick="clic('img1');"><img id="img1" src="images/img1.jpg"></div>
+	   	<div class="case" onclick="clic('img2');"><img id="img2" src="images/img1.jpg"/></div>
+	    <div class="case" onclick="clic('img3');"><img id="img3" src="images/img2.jpg"/></div>
+	   	<div class="case" onclick="clic('img4');"><img id="img4" src="images/img2.jpg"/></div>
+	</section>
+
+	<section id="affichage">
+	    <button>Nouvelle partie</button>
+	    <p>Nombre d'erreurs : </p>
+	    <div id="finDePartie"></div>
+	</section>
+
+    <script src="source.js"></script>
+</body>
+</html>

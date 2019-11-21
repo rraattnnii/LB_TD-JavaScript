@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+	<title>JavaScript</title>
+</head>
+
+<body>
+	<img 
+		id="image" src="images/img1.jpg" alt="leftovers" width="70" 
+		onmouseover="
+			this.src='images/img2.jpg';this.width='150';this.alt='fargo'
+		" 
+		onmouseout="
+			this.src='images/img1.jpg';this.width='70';this.alt='leftovers'
+		"
+	>
+	<ol>
+		<li>
+			L'image change quand on passe dessus avec la souris.<br>
+		</li>
+		<li 
+			onclick="
+				this.innerHTML='click pour Fargo - dblclick pour Leftovers';
+				document.getElementById('image').src='images/img2.jpg';
+			" 
+			ondblclick="
+				this.innerHTML='click pour Fargo - dblclick pour Leftovers';
+				document.getElementById('image').src='images/img1.jpg';
+			"
+		>
+			click sur ce texte pour passer sur Fargo - dblclick pour The Leftovers
+		</li>
+	</ol>
+</body>
+</html>
+

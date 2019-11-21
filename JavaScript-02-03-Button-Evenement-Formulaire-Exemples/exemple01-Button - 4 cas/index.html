@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+	    <meta charset="utf-8">
+	    <title>JavaScript</title>
+	</head>
+
+	<body>	
+		<h2> bouton avec un onclick= "alert()"</h2>   
+		<button type="button" onclick="alert('Cas 1 : Alert dans le bouton : Hello world!')">
+		     Click Me! - cas 1
+		</button>
+
+		    
+		<h2> bouton avec un onclick= une fonction directement dans le bouton </h2>		    
+		<button onclick="
+			function clic2() {
+				alert('Cas 2 : Fonction dans le bouton : Hello world!');
+			};
+			clic2()
+		">
+		     Click Me! - cas 2
+		</button>
+
+
+		<h2> bouton avec un onclick= une fonction dans un fichier js </h2> 
+		<button onclick="buttonClic3()">
+		     Click Me! - cas 3
+		</button>
+
+
+		<h2> bouton sans onclick mais avec un id : l'evenement est géré dans le JavaScript</h2>		    
+		<button id="monBouton">
+		     Click Me! - cas 4
+		</button>
+
+
+		<h2> bouton avec onclick= href : "window.location.href='page.html'" </h2>   
+		<button onclick="window.location.href='page_2.html'"/>
+		     Click Me! - cas 5
+		</button>	
+
+		<script src="script.js"></script> 
+	</body>
+</html>

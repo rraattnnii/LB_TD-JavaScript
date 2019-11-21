@@ -1,0 +1,13 @@
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+	height: 100px;
+  padding: 10px;
+}
+
+img{
+	height: 60px;
+	margin: 0 5px;  
+}

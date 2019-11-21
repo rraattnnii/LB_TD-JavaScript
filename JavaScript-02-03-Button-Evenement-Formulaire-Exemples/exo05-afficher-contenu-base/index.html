@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript - DOM</title>
+</head>
+
+<body>
+	<h1 onclick="afficherContenuH1(1)" ondblclick="cacherContenuH1(1)">Partie 1</h1>
+		<div id="title1" style="display:none">
+			<p>Mon premier paragraphe</p>
+			<p>Mon second paragraphe</p>
+		</div>
+	<h1 onclick="afficherContenuH1(2)" ondblclick="cacherContenuH1(2)">Partie 2</h1>
+		<div id="title2" style="display:none">
+			<p>Mon premier paragraphe</p>
+			<p>Mon second paragraphe</p>
+		</div>
+
+	<h3>En cliquant sur le titre, on affiche le contenu</h3>
+	<h3>En double-cliquant sur le titre, on masque le contenu</h3>
+	<p>
+		<button type="button" onclick="afficherTousLesDiv()">
+		Afficher tout le texte</button>
+		<button type="button" onclick="cacherTousLesDiv()">
+		Masquer tout le texte </button> 
+	</p>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Manipulation des formulaires</title>
+</head>
+
+<body>
+    <form action="page.php" method="POST" onsubmit="return verifForm(this)" onreset="return resetForm(this)" >
+    <fieldset>
+        <label for="pseudo">Pseudo : </label>
+        <input type="text" name="pseudo" id="pseudo">
+        <span id="aidePseudo"></span><br>
+
+        <label for="passwd">Mot de passe : </label>
+        <input type="password" name="passwd" id="passwd" oninput ="verifPasswd(this)" required>
+        <span id="aidePasswd"></span><br>
+
+        <br>
+        <input type="submit" value="Envoyer">
+        <input type="reset" value="Annuler">
+    </fieldset>
+    </form>
+
+<script src="script.js"></script>
+</body>
+</html>

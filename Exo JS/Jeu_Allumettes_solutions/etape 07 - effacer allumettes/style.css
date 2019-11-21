@@ -1,0 +1,11 @@
+td{
+    width:30px;
+    height:100px;
+}
+td p{
+	text-align: center;
+}
+td img{
+	height:80px;
+	width:10px;
+}
